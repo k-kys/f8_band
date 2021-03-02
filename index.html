@@ -7,6 +7,7 @@
     <title>The band</title>
     <link rel="shortcut icon" href="./assets/favicon/favicon.png" type="image/x-icon" />
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/responsive.css" />
     <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css" />
 </head>
 
@@ -35,6 +36,10 @@
                 <i class="ti-search search-icon"></i>
             </div>
             <!-- End Search button -->
+
+            <div id="mobile-menu" class="mobile-menu-btn">
+                <i class="ti-menu menu-icon"></i>
+            </div>
         </div>
 
         <div id="slider">
@@ -180,6 +185,32 @@
             <p class="copyright">Powered by <a href="">w3.css</a></p>
         </div>
     </div>
+
+    <script>
+        var header = document.getElementById("header");
+        var mobileMenu = document.getElementById("mobile-menu");
+        var headerHeight = header.clientHeight;
+
+        // Open/Close Mobile Menu
+        mobileMenu.onclick = function() {
+            var isClose = header.clientHeight === headerHeight;
+            if (isClose) {
+                header.style.height = "auto";
+            } else {
+                header.style.height = null;
+            }
+        };
+
+        // Auto Close when select Menu
+        var menuItems = document.querySelectorAll('#nav li a[href*="#"]');
+        for (var i = 0; i < menuItems.length; i++) {
+            var menuItem = menuItems[i];
+
+            menuItem.onclick = function() {
+                header.style.height = null;
+            };
+        }
+    </script>
 </body>
 
 </html>
