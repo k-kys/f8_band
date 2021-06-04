@@ -11,6 +11,9 @@
 /* Mobile */
 
 @media (max-width: 739px) {
+    #nav>li{
+        display: block;
+    }
     #nav>li {
         display: block;
     }
